@@ -8,7 +8,7 @@ module.exports = function (req, res, next) {
             return next(ApiError.UnauthorizedError("header"));
         }
 
-        const accessToken = authorizationHeader.split(' ')[1];
+       const token = req.headers["authorization"];
         if (!accessToken) {
             return next(ApiError.UnauthorizedError("access"));
         }
